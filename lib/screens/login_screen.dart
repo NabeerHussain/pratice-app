@@ -205,6 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
+                        
                           Get.toNamed("https://nabeer.netlify.app");
                         },
                         child: Text(
