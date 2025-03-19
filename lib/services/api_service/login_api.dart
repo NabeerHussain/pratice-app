@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 class ApiService {
+  // static const String baseUrl = "http:// 10.112.24.153:8081/api"; // Change for emulator if needed
   static const String baseUrl = "http://192.168.18.21:8081/api"; // Change for emulator if needed
 
   Future<Map<String, dynamic>> login(String email, String password) async {

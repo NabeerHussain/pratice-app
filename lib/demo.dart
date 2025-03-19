@@ -1,194 +1,144 @@
 import 'package:flutter/material.dart';
-import 'package:pratise_app/testing/card.dart';
+import 'package:get/get.dart';
 
-class DemoApp extends StatelessWidget {
-  const DemoApp({super.key});
+class EasyPaisaDashboard extends StatelessWidget {
+  const EasyPaisaDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Demo App',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
-        backgroundColor: const Color.fromARGB(255, 37, 27, 56),
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.white),
-          onPressed: () {},
-        ),
-        actions: <Widget>[
+        title: const Text('Dashboard', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.deepPurple,
+        actions: [
           IconButton(
-            icon: const Icon(Icons.more_vert, color: Colors.white),
+            icon: const Icon(Icons.account_circle, color: Colors.white, size: 30),
             onPressed: () {},
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: [
-            Container(
-              margin: const EdgeInsets.only(top: 10.0),
-              width: 350,
-              height: 60, // Fixed height
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[
-                    Colors.deepPurple,
-                    Colors.purple,
-                  ],
-                ),
-              ),
-              child: Container(
-                margin: const EdgeInsets.only(left: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    IconButton(
-                      icon: const Icon(Icons.search,
-                          color: Colors.white, size: 30.0),
-                      onPressed: () {
-                        // Handle search button tap
-                      },
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.deepPurple),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CircleAvatar(
+                    radius: 30,
+                    backgroundImage: NetworkImage(
+                      'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png',
                     ),
-                    const Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search...",
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(color: Colors.white),
-                        ),
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text('User Name', style: TextStyle(color: Colors.white, fontSize: 18)),
+                  Text('user@example.com', style: TextStyle(color: Colors.white70)),
+                ],
               ),
             ),
-            SizedBox(
-              height: 20,
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {},
             ),
-            Column(
-              children: [
-                Container(
-                    margin: const EdgeInsets.only(top: 10.0),
-                    width: double.infinity,
-                    height: 630, // Fixed height
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(50.0),
-                        topRight: Radius.circular(50.0),
-                      ),
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: <Color>[
-                          Colors.deepPurple,
-                          Colors.purple,
-                        ],
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Stack(
-                          alignment: Alignment.center, // Center alignment
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 30), // Moves image downward
-                              child: Image.asset(
-                                'assets/pic.png',
-                                width: 300,
-                                height: 300,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                            height: 20), // Space between image and text
-                        Center(
-                          child: const Text(
-                          
-                            "Welcome to My App!\nContinue exploring amazing \nfeatures and seamless experiences.",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                            height: 60), 
-                        SizedBox(
-                          width: 200,
-                          child: ElevatedButton.icon(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(255, 37, 27, 56),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/second');
-                            },
-                            icon: const Icon(Icons.play_arrow,
-                                color: Colors.white),
-                            label: const Text(
-                              'Read more about app',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
-              ],
-            )
+            ListTile(
+              leading: Icon(Icons.payment),
+              title: Text('Transactions'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Logout'),
+              onTap: () {},
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: const Color.fromARGB(255, 77, 82, 77),
-        child: SizedBox(
-          height: 50.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.home, color: Colors.white, size: 30.0),
-                onPressed: () {
-                  // Handle home button tap
-                },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 6)],
               ),
-              IconButton(
-                icon: const Icon(Icons.search, color: Colors.white, size: 30.0),
-                onPressed: () {
-                  // Handle search button tap
-                },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Available Balance', style: TextStyle(color: Colors.white70)),
+                  const SizedBox(height: 8),
+                  Text('PKR 25,000', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+                ],
               ),
-              IconButton(
-                icon: const Icon(Icons.person,
-                    color: Colors.white, size: 30.0),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>  UserProfile()));  
-                  // Handle add button tap
-                },
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildQuickAction(Icons.send, 'Send Money'),
+                _buildQuickAction(Icons.mobile_friendly, 'Mobile Load'),
+                _buildQuickAction(Icons.qr_code, 'Scan & Pay'),
+                _buildQuickAction(Icons.receipt_long, 'Bills'),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView(
+                children: [
+                  _buildTransactionCard('Paid to Ali', '-PKR 500', Colors.red),
+                  _buildTransactionCard('Received from Ahmed', '+PKR 1500', Colors.green),
+                  _buildTransactionCard('Bill Payment', '-PKR 3000', Colors.red),
+                ],
               ),
-            ],
-            
-          ),
+            ),
+          ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildQuickAction(IconData icon, String label) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundColor: Colors.deepPurple.shade100,
+          child: Icon(icon, color: Colors.deepPurple, size: 30),
+        ),
+        const SizedBox(height: 5),
+        Text(label, style: TextStyle(fontSize: 12)),
+      ],
+    );
+  }
+
+  Widget _buildTransactionCard(String title, String amount, Color color) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: ListTile(
+        leading: Icon(Icons.arrow_forward, color: color),
+        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+        trailing: Text(amount, style: TextStyle(color: color, fontSize: 16)),
       ),
     );
   }
