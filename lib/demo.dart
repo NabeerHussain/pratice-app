@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:pratise_app/services/controllers/login_controller.dart';
+import 'package:pratise_app/testing/card.dart';
 class EasyPaisaDashboard extends StatelessWidget {
-  const EasyPaisaDashboard({super.key});
+   EasyPaisaDashboard({super.key});
 
   @override
+   
   Widget build(BuildContext context) {
+    final loginController = Get.put(LoginController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.deepPurple,
+        title:  Text(
+          loginController.user.value?.name ?? "User Name", 
+          style: TextStyle(color: Colors.white
+          )),
+          flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF14213D), Color(0xFFFF7426)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.account_circle, color: Colors.white, size: 30),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
+            },
           ),
         ],
       ),
@@ -22,11 +38,19 @@ class EasyPaisaDashboard extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: Colors.deepPurple),
+              
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF14213D), Color(0xFFFF7426)],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CircleAvatar(
+                    
                     radius: 30,
                     backgroundImage: NetworkImage(
                       'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png',
@@ -53,11 +77,11 @@ class EasyPaisaDashboard extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {},
             ),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Logout'),
-              onTap: () {},
-            ),
+            // ListTile(
+            //   leading: Icon(Icons.logout),
+            //   title: Text('Logout'),
+            //   onTap: () {},
+            // ),
           ],
         ),
       ),
@@ -69,7 +93,7 @@ class EasyPaisaDashboard extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                gradient: LinearGradient(colors: [Color(0xFF14213D), Color(0xFFFF7426)]),
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 6)],
               ),
@@ -114,8 +138,21 @@ class EasyPaisaDashboard extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
+        onTap: (index) {
+          switch (index) {
+        case 0:
+          Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
+          break;
+        case 1:
+          Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
+          break;
+        case 2:
+          Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
+          break;
+          }
+        },
       ),
-    );
+      );
   }
 
   Widget _buildQuickAction(IconData icon, String label) {
@@ -123,8 +160,8 @@ class EasyPaisaDashboard extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 30,
-          backgroundColor: Colors.deepPurple.shade100,
-          child: Icon(icon, color: Colors.deepPurple, size: 30),
+          backgroundColor: const Color.fromARGB(255, 224, 223, 226),
+          child: Icon(icon, color: Color(0xFFFF7426), size: 30),
         ),
         const SizedBox(height: 5),
         Text(label, style: TextStyle(fontSize: 12)),

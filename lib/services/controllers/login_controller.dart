@@ -15,6 +15,7 @@ class LoginController extends GetxController {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+ 
 
   Future<void> login() async {
     print("Login process started...");
@@ -51,7 +52,7 @@ class LoginController extends GetxController {
         await FlutterKeychain.put(key: "token", value: userResponse.token);
         print('login token: ${userResponse.token}');
         log("Token saved successfully!");
-        Get.off(DemoApp());
+        Get.off(EasyPaisaDashboard());
         // Get.offNamed('DemoApp');
       }
     } catch (e) {
@@ -70,7 +71,7 @@ class LoginController extends GetxController {
       print('Stored Token: $token');
 
       if (token != null) {
-        Get.off(DemoApp());
+        Get.off(EasyPaisaDashboard());
       }
     } catch (e) {
       log("Error retrieving token: $e");
