@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pratise_app/class_pratice/bulb.dart';
 import 'package:pratise_app/services/controllers/login_controller.dart';
 import 'package:pratise_app/testing/card.dart';
 class EasyPaisaDashboard extends StatelessWidget {
@@ -144,7 +145,7 @@ class EasyPaisaDashboard extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
           break;
         case 1:
-          Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => BulbScreen()));
           break;
         case 2:
           Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
