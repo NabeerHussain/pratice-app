@@ -22,7 +22,7 @@ class _BulbScreenState extends State<BulbScreen> {
                mainAxisAlignment: MainAxisAlignment.center,
                  children: [
                 Text(
-                 'If you want to turn on the bulb,\n press the button below',
+                 'If you want to turn on the bulb,\n press the button  and see the magic',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
