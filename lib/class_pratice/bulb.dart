@@ -52,7 +52,7 @@ class _BulbScreenState extends State<BulbScreen> {
                 if (isOn)
                   Container(
                     margin: const EdgeInsets.only(bottom: 100),
-                    width: 100,
+                    
                     height: 70,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
