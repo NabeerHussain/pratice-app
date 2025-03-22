@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pratise_app/class_pratice/bulb.dart';
+import 'package:pratise_app/portfoliio/portfolio.dart';
 import 'package:pratise_app/services/controllers/login_controller.dart';
 import 'package:pratise_app/testing/card.dart';
 class EasyPaisaDashboard extends StatelessWidget {
@@ -69,9 +70,12 @@ class EasyPaisaDashboard extends StatelessWidget {
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.payment),
-              title: Text('Transactions'),
-              onTap: () {},
+              leading: Icon(Icons.person),
+              title: Text('Portfolio'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PortfolioScreen()));
+              },
+              trailing: Icon(Icons.arrow_forward_ios),
             ),
             ListTile(
               leading: Icon(Icons.settings),
