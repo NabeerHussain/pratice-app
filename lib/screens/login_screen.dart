@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
         height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF14213D), Color(0xFFFF7426)],
+            colors: [Color.fromARGB(255, 25, 45, 88), Color.fromARGB(255, 7, 54, 155)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

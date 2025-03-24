@@ -20,7 +20,7 @@ class EasyPaisaDashboard extends StatelessWidget {
           flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF14213D), Color(0xFFFF7426)],
+              colors: [Color.fromARGB(255, 25, 45, 88), Color.fromARGB(255, 7, 54, 155)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
@@ -43,7 +43,7 @@ class EasyPaisaDashboard extends StatelessWidget {
               
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Color(0xFF14213D), Color(0xFFFF7426)],
+                  colors: [Color.fromARGB(255, 25, 45, 88), Color.fromARGB(255, 7, 54, 155)],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
@@ -98,7 +98,7 @@ class EasyPaisaDashboard extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [Color(0xFF14213D), Color(0xFFFF7426)]),
+                gradient: LinearGradient(colors: [Color.fromARGB(255, 25, 45, 88), Color.fromARGB(255, 7, 54, 155)]),
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 6)],
               ),
@@ -136,7 +136,7 @@ class EasyPaisaDashboard extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Color.fromARGB(255, 25, 45, 88),
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -166,7 +166,7 @@ class EasyPaisaDashboard extends StatelessWidget {
         CircleAvatar(
           radius: 30,
           backgroundColor: const Color.fromARGB(255, 224, 223, 226),
-          child: Icon(icon, color: Color(0xFFFF7426), size: 30),
+          child: Icon(icon, color: Color.fromARGB(255, 25, 45, 88), size: 30),
         ),
         const SizedBox(height: 5),
         Text(label, style: TextStyle(fontSize: 12)),
