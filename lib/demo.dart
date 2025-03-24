@@ -28,7 +28,7 @@ class EasyPaisaDashboard extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.account_circle, color: Colors.white, size: 30),
+            icon: const Icon(Icons.account_circle, color: Colors.white, size: 31),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => UserProfile()));
             },
