@@ -18,7 +18,7 @@ class LoginController extends GetxController {
  
 
   Future<void> login() async {
-    print("Login process started...");
+    print("Login proces started...");
     log("Login process started...");
 
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
